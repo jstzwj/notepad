@@ -17,9 +17,8 @@
    <string>记事本</string>
   </property>
   <property name="windowIcon">
-   <iconset>
-    <normaloff>res/np_mi.ico</normaloff>
-    <normalon>res/np_mi.ico</normalon>res/np_mi.ico</iconset>
+   <iconset resource="icon.qrc">
+    <normaloff>:/res/np_mi.ico</normaloff>:/res/np_mi.ico</iconset>
   </property>
   <property name="animated">
    <bool>true</bool>
@@ -53,21 +52,21 @@
        <number>0</number>
       </property>
       <item row="0" column="0">
-       <widget class="QPlainTextEdit" name="plainTextEdit">
+       <widget class="QTextEdit" name="plainTextEdit">
         <property name="font">
          <font>
           <family>宋体</family>
           <pointsize>12</pointsize>
          </font>
         </property>
-        <property name="frameShape">
-         <enum>QFrame::StyledPanel</enum>
-        </property>
         <property name="verticalScrollBarPolicy">
          <enum>Qt::ScrollBarAlwaysOn</enum>
         </property>
         <property name="horizontalScrollBarPolicy">
          <enum>Qt::ScrollBarAlwaysOn</enum>
+        </property>
+        <property name="lineWrapMode">
+         <enum>QTextEdit::NoWrap</enum>
         </property>
        </widget>
       </item>
@@ -321,6 +320,8 @@
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="icon.qrc"/>
+ </resources>
  <connections/>
 </ui>

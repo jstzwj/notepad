@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>res/5303082-1.jpg</file>
+        <file>res/notepad.png</file>
+        <file>res/np_li.ico</file>
+        <file>res/np_mi.ico</file>
+    </qresource>
+</RCC>

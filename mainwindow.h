@@ -45,6 +45,16 @@ private slots:
     void on_find_triggered();
     void on_status_triggered();
     void on_autoline_triggered();
+    void on_findnext_triggered();
+
+    void on_font_triggered();
+
+    void on_about_triggered();
+
+    void on_help_triggered();
+
+    void on_print_triggered();
+
 public:
     //对外
     bool FindStr(QString &index,int mode);

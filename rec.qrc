@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>res/win10_1.png</file>
+        <file>res/win10_2.png</file>
+        <file>res/win10_3.png</file>
+    </qresource>
+</RCC>

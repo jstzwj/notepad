@@ -1,12 +1,17 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include"finddialog.h"
+#include"aboutdialog.h"
 #include<QMenu>
 #include<QMessageBox>
 #include <QMessageBox>
 #include <QPushButton>
 #include <QFileDialog>
+#include<QFontDialog>
+#include <QTPrintSupport/QPrintDialog>
+#include <QTPrintSupport/QPrinter>
 #include <QTextStream>
+#include <QDesktopServices>
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -235,25 +240,27 @@ void MainWindow::on_status_triggered()
 
 void MainWindow::on_autoline_triggered()
 {
-    static bool isAuto;//是否自动换行
+    static bool isAuto=false;//是否自动换行
     if(isAuto==true)
     {
         isAuto=false;
         ui->autoline->setChecked(false);
         ui->status->setEnabled(true);
+        ui->plainTextEdit->setLineWrapMode(QTextEdit::NoWrap);
     }
     else
     {
         isAuto=true;
         ui->autoline->setChecked(true);
         ui->status->setEnabled(false);
+        ui->plainTextEdit->setLineWrapMode(QTextEdit::WidgetWidth);
     }
 }
 bool MainWindow::FindStr(QString &index,int mode)
 {
     //ui->plainTextEdit->moveCursor(QTextCursor::StartOfLine,QTextCursor::MoveAnchor);
     int temp=mode%10;
-    if(mode-temp==0)
+    if(mode/10==0)
     {
        //上下
        if(temp==0)
@@ -265,7 +272,7 @@ bool MainWindow::FindStr(QString &index,int mode)
            ui->plainTextEdit->find(index, QTextDocument::FindBackward);
        }
     }
-    else if(mode-temp==1)
+    else if(mode/10==1)
     {
         //上下
         if(temp==0)
@@ -279,4 +286,38 @@ bool MainWindow::FindStr(QString &index,int mode)
     }
 
     return true;
+}
+
+void MainWindow::on_findnext_triggered()
+{
+    finddialog *find=new finddialog(this);
+    find->show();
+}
+
+void MainWindow::on_font_triggered()
+{
+    bool ok;
+    QFont font=QFontDialog::getFont(&ok,this);
+    if(ok)
+    {
+        ui->plainTextEdit->setFont(font);
+    }
+}
+
+void MainWindow::on_about_triggered()
+{
+    AboutDialog *dlg=new AboutDialog(this);
+    dlg->show();
+}
+
+void MainWindow::on_help_triggered()
+{
+    QDesktopServices link;
+    link.openUrl(QUrl("http://windows.microsoft.com/zh-cn/windows-10/support"));
+}
+
+void MainWindow::on_print_triggered()
+{
+    //QPrinter printer;
+    //QPrintDialog printDialog(&printer, this);
 }

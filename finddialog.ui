@@ -119,5 +119,22 @@
   </widget>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>cancel</sender>
+   <signal>clicked()</signal>
+   <receiver>finddialog</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>403</x>
+     <y>73</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>403</x>
+     <y>107</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
