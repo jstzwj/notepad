@@ -55,6 +55,8 @@ private slots:
 
     void on_print_triggered();
 
+    void on_date_triggered();
+
 public:
     //对外
     bool FindStr(QString &index,int mode);

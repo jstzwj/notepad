@@ -3,6 +3,7 @@
 #include"finddialog.h"
 #include"aboutdialog.h"
 #include<QMenu>
+#include<QDateTime>
 #include<QMessageBox>
 #include <QMessageBox>
 #include <QPushButton>
@@ -10,6 +11,7 @@
 #include<QFontDialog>
 #include <QTPrintSupport/QPrintDialog>
 #include <QTPrintSupport/QPrinter>
+#include<QtPrintSupport/QtPrintSupport>
 #include <QTextStream>
 #include <QDesktopServices>
 MainWindow::MainWindow(QWidget *parent) :
@@ -318,6 +320,18 @@ void MainWindow::on_help_triggered()
 
 void MainWindow::on_print_triggered()
 {
-    //QPrinter printer;
-    //QPrintDialog printDialog(&printer, this);
+    QPrinter printer;
+    QPrintDialog printDialog(&printer, this);
+    printDialog.show();
+}
+
+void MainWindow::on_date_triggered()
+{
+    QDateTime date=QDateTime::currentDateTime();
+    QString tmp=ui->plainTextEdit->toPlainText()+date.toString("hh:mm yyyy-MM-dd");
+    ui->plainTextEdit->setText(tmp);
+    QTextCursor cursor;
+    cursor=ui->plainTextEdit->textCursor();
+    cursor.movePosition(QTextCursor::End,QTextCursor::MoveAnchor);
+    ui->plainTextEdit->setTextCursor(cursor);
 }

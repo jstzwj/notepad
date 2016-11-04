@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2016-02-15T10:58:58
+# Project created by QtCreator 2016-11-04T21:09:44
 #
 #-------------------------------------------------
 
@@ -14,26 +14,21 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    finddialog.cpp \
-    aboutdialog.cpp
+    aboutdialog.cpp \
+    finddialog.cpp
 
 HEADERS  += mainwindow.h \
-    finddialog.h \
-    aboutdialog.h
+    aboutdialog.h \
+    finddialog.h
 
 FORMS    += mainwindow.ui \
-    finddialog.ui \
-    aboutdialog.ui
+    aboutdialog.ui \
+    finddialog.ui
 
-DISTFILES += \
-    res/notepad.png \
-    res/win10_1.png \
-    res/win10_2.png \
-    res/win10_3.png \
-    res/1.bmp
-#设置图标
-RC_ICONS = res/np_mi.ico
+QT += printsupport
 
 RESOURCES += \
-    rec.qrc \
-    icon.qrc
+    icon.qrc \
+    rec.qrc
+
+RC_FILE=ico.rc
